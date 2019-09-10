@@ -2,11 +2,12 @@
 
 //CSGO APP ID = 730
 
-// Avoids tedious text manipulation by using express
-// Allows you to deal with HTTP in an event driven way
-
 // const {startDatabase} = require('./database/mongo');
 // const {insertAd, getAds} = require('./database/ads');
+
+// not allowing our index to access through frontend.js 
+// must use CORS in frontend.js
+
 
 var express = require('express');
 var app = express(); 
@@ -29,7 +30,7 @@ var port = 4000;
 var server = app.listen(port);
 console.log("TrackYourItems listening on port: " + port);
 console.log("localhost:" + port + "/trackyouritems");
-app.use('./index.html');
+// app.use('./index.html');
 
 // Params example for reference 
 // app.get('/test/:name', function(req, res){
