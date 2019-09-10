@@ -1,0 +1,30 @@
+{
+  "name": "trackyouritems",
+  "version": "1.0.0",
+  "description": "Track your CSGO inventory and set notifications to alert you when your skin reaches a certain price on the market.",
+  "main": "server.js",
+  "dependencies": {
+    "ajax": "^0.0.4",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.2",
+    "mongodb-memory-server": "^5.2.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdtoombs/trackyouritems.git"
+  },
+  "author": "Jonny Toombs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdtoombs/trackyouritems/issues"
+  },
+  "homepage": "https://github.com/jdtoombs/trackyouritems#readme"
+}

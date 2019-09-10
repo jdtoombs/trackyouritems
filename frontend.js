@@ -4,12 +4,18 @@ function sendRequest() {
         type: 'GET',
         // This is the important part
         xhrFields: {
-            withCredentials: true
+            withCredentials: false
         },
         // This is the important part
         // data: data,
         success: function (response) {
-            console.log("Very nice");
+            // console.log("Very nice");
+            alert("it worjkbked");
+            alert(response.body);
+            var checkParse = JSON.parse(response);
+            // var totalInvCount = checkParse.total_inventory_count;
+            alert(checkParse.total_inventory_count);
+            console.log(checkParse.total_inventory_count);
             // handle the response
         },
         error: function (xhr, status) {
@@ -18,6 +24,4 @@ function sendRequest() {
     });
 }
 
-function doShit() {
-    alert("f js");
-}
+var request = new XMLHttpRequest()
