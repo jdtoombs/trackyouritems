@@ -1,7 +1,7 @@
 // Node API / Express Server
 
 //CSGO APP ID = 730
-const path = require("path");
+// var path = require("path");
 const express = require('express');
 // Will be using request to hit the Steam API 
 const request = require('request');
@@ -43,17 +43,6 @@ app.get('/trackyouritems', function(req, resp){
 
         resp.setHeader('Content-Type', 'application/json');
         resp.send(body);
-
-        var checkParse = JSON.parse(body);
-        console.log(checkParse.total_inventory_count);
-
-        var i;
-        var wstream = fs.createWriteStream('myOutput.txt');
-
-        for(i in checkParse.descriptions){
-            console.log(checkParse.descriptions[i].market_hash_name);
-            wstream.write(checkParse.descriptions[i].market_hash_name + '\n');
-        }
     });
 });
 

@@ -2,15 +2,30 @@
 <html lang="en">
     <head>
         <title>TrackYourItems</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     </head>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-    <script src = "frontend.js" type="text/javascript"></script>
+    <!-- <script src = "server.js" type="text/javascript"></script> -->
+
     <body>
         <!-- Even though I am getting a CORS error in console-->
         <!-- It is still sending the inventory to the server from Steam-->
-        <button onclick="sendRequest()">Load my Inventory</button>
+        <div class="container">
+            <div class = "table-responsive">
+                <h1>TrackYourItems</h1>
+                <br />
+
+                <table class = "table table-bordered table-striped" id="item_table">
+                    <tr>
+                        <th>Item</th>
+                        <th>Image</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </body>
+
 </html>
+<script src = "frontend.js" type="text/javascript"></script>
