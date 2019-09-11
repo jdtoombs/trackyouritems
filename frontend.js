@@ -1,15 +1,15 @@
 $(document).ready(function(){
     $.getJSON("http://localhost:4000/trackyouritems", function(data){
         var inv_data = '';
-        var checkParse = JSON.parse(data);
-        alert(checkParse);
+        // var checkParse = JSON.parse(data);
+        // alert(checkParse);
         $.each(data, function(key, value){
             inv_data += '<tr>';
-            inv_data += '<td>' + value.total_inventory_count + '<td>';
+            inv_data += '<td>' + value + '<td>';
             // inv_data += '<td>' + value.documents[key].market_hash_name + '<td>';
             inv_data += '</tr>';
         });
-        $('item_table').append(inv_data);
+        $('#item_table').append(inv_data);
     });
 
 });
