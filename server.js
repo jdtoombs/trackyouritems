@@ -36,6 +36,7 @@ app.all('/trackyouritems', function(req, res, next) {
     next()
   });
 
+// can probably do this without server but better for if we use API later on
 app.get('/trackyouritems', function(req, resp){
     
     var link = 'http://steamcommunity.com/inventory/' + toobsSteam64ID + '/730/2?l=english&cou';
