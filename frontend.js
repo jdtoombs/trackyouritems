@@ -2,6 +2,8 @@ $(document).ready(function(){
     $.getJSON("http://localhost:4000/trackyouritems", function(data){
         var inv_data = '';
         $.each(data.descriptions, function(key, value){
+            // if item is marketable - dont want coins and defualt skins with stickers appearing
+            // add later 
             inv_data += '<tr>';
             inv_data += '<td>' + value.market_hash_name + '<td>';
             inv_data += '</tr>';
@@ -15,7 +17,7 @@ $(document).ready(function(){
         for (i=0;i<arr.length;i++) {
             // first cell is blank
             // alert(arr[i+1]);
-            $.getJSON("http://localhost:4000/prices"+ arr[i+10], function(data){
+            $.getJSON("http://localhost:4000/prices/"+ arr[i+10], function(data){
                 // set up params on server to handle which get to send to steam itll be =arr[i+1]
             });
         }

@@ -21,7 +21,7 @@ app.all('/trackyouritems', function(req, res, next) {
     next()
 });
 
-app.all('/prices', function(req, res, next) {
+app.all('/prices/:item_name', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next()
@@ -40,9 +40,9 @@ app.get('/trackyouritems', function(req, resp){
     });
 });
 
-app.get('/prices', function(req, resp){
-    
-    var link = 'https://steamcommunity.com/market/priceoverview/?appid=730&currency=3&market_hash_name=Glock-18%20|%20Warhawk%20(Minimal%20Wear)';
+app.get('/prices/:=item_name', function(req, resp){
+    // send back not on market if 404?
+    var link = 'https://steamcommunity.com/market/priceoverview/?appid=730&currency=3&market_hash_name=' + req.params.item_name;
     request.get(link, function(error, res, body){
         resp.setHeader('Content-Type', 'application/json');
         resp.send(body);
