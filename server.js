@@ -1,3 +1,5 @@
+// Server must handle api requests as client side cannot due to CORS
+
 const express = require('express');
 const request = require('request');
 var app = express(); 
@@ -42,7 +44,6 @@ app.get('/prices', function(req, resp){
     
     var link = 'https://steamcommunity.com/market/priceoverview/?appid=730&currency=3&market_hash_name=Glock-18%20|%20Warhawk%20(Minimal%20Wear)';
     request.get(link, function(error, res, body){
-
         resp.setHeader('Content-Type', 'application/json');
         resp.send(body);
     });
