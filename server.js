@@ -40,8 +40,11 @@ app.get('/trackyouritems', function(req, resp){
     });
 });
 
-app.get('/prices/:=item_name', function(req, resp){
+app.get('/prices/:item_name', function(req, resp){
     // send back not on market if 404?
+    // alert(req.params.item_name);
+    // items are repeating themselves 
+    console.log(req.params.item_name);
     var link = 'https://steamcommunity.com/market/priceoverview/?appid=730&currency=3&market_hash_name=' + req.params.item_name;
     request.get(link, function(error, res, body){
         resp.setHeader('Content-Type', 'application/json');
