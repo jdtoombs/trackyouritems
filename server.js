@@ -34,22 +34,21 @@ app.get('/trackyouritems', function(req, resp){
     
     var link = 'http://steamcommunity.com/inventory/' + toobsSteam64ID + '/730/2?l=english&cou';
     request.get(link, function(error, res, body){
-
         resp.setHeader('Content-Type', 'application/json');
         resp.send(body);
     });
 });
 
-app.get('/prices/:item_name', function(req, resp){
-    // send back not on market if 404?
-    // alert(req.params.item_name);
-    // items are repeating themselves 
-    console.log(req.params.item_name);
-    // 1 for usd 3 for euro
-    var link = 'https://steamcommunity.com/market/priceoverview/?appid=730&currency=1&market_hash_name=' + req.params.item_name;
-    request.get(link, function(error, res, body){
-        resp.setHeader('Content-Type', 'application/json');
-        resp.send(body);
-    });
-});
+// app.get('/prices', function(req, resp){
+//     // do one get request to bitskins api for all prices
+//     // loop through and match name to get price through front end.js
+//     // send back not on market if 404?
+//     console.log(req.params.item_name);
+//     // 1 for usd 3 for euro
+//     var link = 'https://bitskins.com/api/v1/get_all_item_prices/?api_key=a5615875-a0a0-4f11-ac29-4836aecc11ba&code=' + codeName + '&app_id=730';
+//     request.get(link, function(error, res, body){
+//         resp.setHeader('Content-Type', 'application/json');
+//         resp.send(body);
+//     });
+// });
 
