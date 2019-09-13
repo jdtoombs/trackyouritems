@@ -14,12 +14,19 @@ $(document).ready(function(){
         $("#item_table tr").each(function(){
             arr.push($(this).find("td:first").text());
         });
-        for (i=0;i<arr.length - 10;i++) {
-            // 10 undefined so added - 10 who knows why lol
+        // starts at index 1 first one is undefined
+        for (i=1;i<arr.length;i++) {
             // first cell is blank
-            // alert(arr[i+1]);
-            $.getJSON("http://localhost:4000/prices/"+ arr[i+1], function(data){
-                // set up params on server to handle which get to send to steam itll be =arr[i+1]
+            $.getJSON("http://localhost:4000/prices/"+ arr[i], function(data){
+                var inv_price = '';
+                $.each(data, function(i, item){
+                    alert(item);
+                    inv_price += '<tr>';
+                    inv_price += '<td>' + item.lowest_price + '</td>';
+                    inv_price += '</tr>';
+                });
+                $('item_table').append(inv_price);
+
 
             });
         }

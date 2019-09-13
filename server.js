@@ -45,7 +45,8 @@ app.get('/prices/:item_name', function(req, resp){
     // alert(req.params.item_name);
     // items are repeating themselves 
     console.log(req.params.item_name);
-    var link = 'https://steamcommunity.com/market/priceoverview/?appid=730&currency=3&market_hash_name=' + req.params.item_name;
+    // 1 for usd 3 for euro
+    var link = 'https://steamcommunity.com/market/priceoverview/?appid=730&currency=1&market_hash_name=' + req.params.item_name;
     request.get(link, function(error, res, body){
         resp.setHeader('Content-Type', 'application/json');
         resp.send(body);
