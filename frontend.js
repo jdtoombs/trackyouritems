@@ -20,6 +20,7 @@ $(document).ready(function(){
         $.getJSON('http://localhost:4000/prices', function(data){
             if(data.status == "fail"){
                 alert(data.data.error_message);
+                alert(arr[1]);
             }else{
                 for(i=1; i<arr.length; i++){
                     $.each(data.prices, function(i, item){

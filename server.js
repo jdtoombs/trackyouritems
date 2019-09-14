@@ -2,7 +2,8 @@
 // need to figure out how to do below in client side js
 var totp = require('notp').totp;
 var base32 = require('thirty-two');
-var codeName = totp.gen(base32.decode('SECRET_SHOWN_BY_BITSKINS')).toString;
+var codeName = totp.gen(base32.decode('7UTWGLFUDYQ7W7TL'));
+console.log(codeName);
 
 const express = require('express');
 const request = require('request');
@@ -41,8 +42,8 @@ app.get('/trackyouritems', function(req, resp){
 });
 
 app.get('/prices', function(req, resp){
-    console.log(req.params.item_name);
     var link = 'https://bitskins.com/api/v1/get_all_item_prices/?api_key=a5615875-a0a0-4f11-ac29-4836aecc11ba&code=' + codeName + '&app_id=730';
+    //console.log(link);
     request.get(link, function(error, res, body){
         resp.setHeader('Content-Type', 'application/json');
         resp.send(body);
