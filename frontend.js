@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var inv_data = [];
+    alert("Ready to load?");
     $.getJSON("http://localhost:4000/trackyouritems", function(data){
         $.each(data.descriptions, function(key, value){
             if(value.marketable == 1 && value.type != "Base Grade Graffiti"){
