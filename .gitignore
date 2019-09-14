@@ -1,3 +1,4 @@
 node_modules/
 myOutput.txt
 data.json
+*.env

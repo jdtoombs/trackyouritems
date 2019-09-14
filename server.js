@@ -1,8 +1,11 @@
 // Server must handle api requests as client side cannot due to CORS
 // need to figure out how to do below in client side js
+require('dotenv').config();
+console.log(process.env);
 var totp = require('notp').totp;
 var base32 = require('thirty-two');
-var codeName = totp.gen(base32.decode('7UTWGLFUDYQ7W7TL'));
+
+var codeName = totp.gen(base32.decode(process.env.BIT_SKINS_SECRET));
 console.log(codeName);
 
 const express = require('express');
@@ -42,7 +45,7 @@ app.get('/trackyouritems', function(req, resp){
 });
 
 app.get('/prices', function(req, resp){
-    var link = 'https://bitskins.com/api/v1/get_all_item_prices/?api_key=a5615875-a0a0-4f11-ac29-4836aecc11ba&code=' + codeName + '&app_id=730';
+    var link = 'https://bitskins.com/api/v1/get_all_item_prices/?api_key='+ process.env.API_KEY + '&code=' + codeName + '&app_id=730';
     //console.log(link);
     request.get(link, function(error, res, body){
         resp.setHeader('Content-Type', 'application/json');
