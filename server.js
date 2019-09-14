@@ -6,6 +6,11 @@ var totp = require('notp').totp;
 var base32 = require('thirty-two');
 
 var codeName = totp.gen(base32.decode(process.env.BIT_SKINS_SECRET));
+var updatedCode = '';
+setInterval(function() {
+    codeName = totp.gen(base32.decode(process.env.BIT_SKINS_SECRET));
+    console.log(codeName);
+}, 30000);
 console.log(codeName);
 
 const express = require('express');

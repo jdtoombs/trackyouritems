@@ -20,7 +20,7 @@ $(document).ready(function(){
                     if(item.market_hash_name == inv_data[k]){
                         inv_price += '<tr>';
                         inv_price += '<td>' + item.market_hash_name + '</td>';
-                        inv_price += '<td>' + item.price + '</td>';
+                        inv_price += '<td>$' + item.price + '</td>';
                         inv_price += '</tr>';
                     }
                 }
