@@ -19,6 +19,7 @@ $(document).ready(function(){
                 for(k = 0; k<inv_data.length; k++){    
                     if(item.market_hash_name == inv_data[k]){
                         inv_price += '<tr>';
+                        inv_price += '<td><img src=' + item.icon_url + ' height=100 width=100></img></td>';
                         inv_price += '<td>' + item.market_hash_name + '</td>';
                         inv_price += '<td>$' + item.price + '</td>';
                         inv_price += '</tr>';

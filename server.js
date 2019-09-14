@@ -4,9 +4,9 @@ require('dotenv').config();
 console.log(process.env);
 var totp = require('notp').totp;
 var base32 = require('thirty-two');
-
 var codeName = totp.gen(base32.decode(process.env.BIT_SKINS_SECRET));
-var updatedCode = '';
+
+// update after 30s then every 30s as code will change 
 setInterval(function() {
     codeName = totp.gen(base32.decode(process.env.BIT_SKINS_SECRET));
     console.log(codeName);
