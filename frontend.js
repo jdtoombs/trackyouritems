@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var inv_data = [];
-    alert("Ready to load?");
-    $.getJSON("http://localhost:4000/trackyouritems", function(data){
+    var person = prompt("Please enter your Steam 64bit ID:", "enter here");
+    $.getJSON("http://localhost:4000/trackyouritems/" + person, function(data){
         $.each(data.descriptions, function(key, value){
             if(value.marketable == 1 && value.type != "Base Grade Graffiti"){
                 inv_data.push(value.market_hash_name);

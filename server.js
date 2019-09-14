@@ -28,7 +28,7 @@ console.log("TrackYourItems listening on port: " + port);
 console.log("localhost:" + port + "/trackyouritems");
 
 // May not be necessary 
-app.all('/trackyouritems', function(req, res, next) {
+app.all('/trackyouritems/:bitID', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next()
@@ -40,9 +40,9 @@ app.all('/prices', function(req, res, next) {
     next()
 });
 
-app.get('/trackyouritems', function(req, resp){
+app.get('/trackyouritems/:bitID', function(req, resp){
     
-    var link = 'http://steamcommunity.com/inventory/' + toobsSteam64ID + '/730/2?l=english&cou';
+    var link = 'http://steamcommunity.com/inventory/' + req.params.bitID + '/730/2?l=english&cou';
     request.get(link, function(error, res, body){
         resp.setHeader('Content-Type', 'application/json');
         resp.send(body);
